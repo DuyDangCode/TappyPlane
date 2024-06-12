@@ -1,17 +1,10 @@
-[gd_scene load_steps=4 format=3 uid="uid://qj2uq7ru76w7"]
+[gd_scene load_steps=2 format=3 uid="uid://qj2uq7ru76w7"]
 
-[ext_resource type="PackedScene" uid="uid://eiy2mqv16bgi" path="res://scenes/backgound.tscn" id="1_a41it"]
-[ext_resource type="PackedScene" uid="uid://covu6svirub6f" path="res://scenes/plane.tscn" id="2_cbq8o"]
-[ext_resource type="PackedScene" uid="uid://blqoniobl5tc" path="res://scenes/barrier.tscn" id="3_urn3t"]
+[ext_resource type="PackedScene" uid="uid://do54gynx41ytu" path="res://scenes/game.tscn" id="4_dpc8k"]
 
 [node name="Main" type="Node2D"]
 
-[node name="Backgound" parent="." instance=ExtResource("1_a41it")]
-position = Vector2(182, 370)
-
-[node name="plane" parent="." instance=ExtResource("2_cbq8o")]
-position = Vector2(161, 488)
-scale = Vector2(0.8, 0.8)
-
-[node name="StaticBody2D" parent="." instance=ExtResource("3_urn3t")]
+[node name="Game" parent="." instance=ExtResource("4_dpc8k")]
 position = Vector2(1, 27)
+
+[editable path="Game"]
