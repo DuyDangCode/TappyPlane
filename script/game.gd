@@ -2,6 +2,8 @@ extends Node2D
 
 @export var pipePackage: PackedScene
 @onready var pipeHolder = $PipesHolder
+@onready var hMarker = $HMarker
+@onready var lMarker = $LMarker
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -11,11 +13,13 @@ func _ready():
 
 func spawnPipes():
 	var newPipes = pipePackage.instantiate()
-	newPipes.position = Vector2(480, 480)
+	var randPosY = randf_range(hMarker.position.y, lMarker.position.y)
+	newPipes.position = Vector2(hMarker.position.x, randPosY)
 	pipeHolder.add_child(newPipes)
 
 func _process(delta):
 	pass
 
 func _on_timer_timeout():
-	spawnPipes()
+	if not GameManager.isGameOver:
+		spawnPipes()

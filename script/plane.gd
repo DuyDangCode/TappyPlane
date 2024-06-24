@@ -13,6 +13,12 @@ func _physics_process(delta):
 		velocity.y = JUMP_VELOCITY
 
 	if is_on_floor():
-		animationPlane.stop()
-		set_physics_process(false)
+		GameManager.isGameOver = true
+
+	if GameManager.isGameOver:
+		stop()
 	move_and_slide()
+
+func stop():
+	animationPlane.stop()
+	set_physics_process(false)
