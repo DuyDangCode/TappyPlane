@@ -4,12 +4,18 @@ extends Node2D
 @onready var pipeHolder = $PipesHolder
 @onready var hMarker = $HMarker
 @onready var lMarker = $LMarker
+@onready var timer: Timer = $Timer
 
-# Called when the node enters the scene tree for the first time.
+const MIN_TIMER: float = 0.1
+const AMOUNT_TIMER_EXTRA: float = 0.1
+
 func _ready():
 	spawnPipes()
+	SignalManager.updateGameMode.connect(updateGameMode)
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
+func updateGameMode():
+	if timer.wait_time > MIN_TIMER:
+		timer.wait_time -= AMOUNT_TIMER_EXTRA
 
 func spawnPipes():
 	var newPipes = pipePackage.instantiate()
@@ -23,3 +29,7 @@ func _process(delta):
 func _on_timer_timeout():
 	if not GameManager.isGameOver:
 		spawnPipes()
+
+func _on_plane_custom_signal():
+	print("plane is stop")
+	pass # Replace with function body.

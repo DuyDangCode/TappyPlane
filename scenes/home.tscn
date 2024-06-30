@@ -1,0 +1,77 @@
+[gd_scene load_steps=8 format=3 uid="uid://tqmpfxf2okb8"]
+
+[ext_resource type="FontFile" uid="uid://b6na2pm8ig8n8" path="res://assets/fonts/Skranji-Bold.ttf" id="1_1us3s"]
+[ext_resource type="Script" path="res://script/home.gd" id="1_g1chw"]
+[ext_resource type="Texture2D" uid="uid://bamngvhlqw147" path="res://assets/background/sky.png" id="1_jg6q2"]
+[ext_resource type="FontFile" uid="uid://86riv4yu286m" path="res://assets/fonts/Skranji-Regular.ttf" id="2_3qh7w"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_swaqd"]
+line_spacing = 0.0
+font = ExtResource("1_1us3s")
+font_size = 48
+font_color = Color(0.905882, 0.101961, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_py1gp"]
+font = ExtResource("2_3qh7w")
+font_size = 25
+font_color = Color(0.905882, 0.101961, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_5o04e"]
+line_spacing = 0.0
+font = ExtResource("2_3qh7w")
+font_size = 25
+font_color = Color(0.905983, 0.103495, 0, 1)
+
+[node name="Home" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_g1chw")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_jg6q2")
+expand_mode = 1
+
+[node name="MC" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 30
+theme_override_constants/margin_top = 15
+theme_override_constants/margin_right = 30
+theme_override_constants/margin_bottom = 15
+
+[node name="PlayBtn" type="Label" parent="MC"]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Play"
+label_settings = SubResource("LabelSettings_swaqd")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HighScoreLabel" type="Label" parent="MC"]
+layout_mode = 2
+size_flags_vertical = 8
+text = "High score: "
+label_settings = SubResource("LabelSettings_py1gp")
+vertical_alignment = 1
+
+[node name="HighScore" type="Label" parent="MC"]
+layout_mode = 2
+size_flags_vertical = 8
+text = "000"
+label_settings = SubResource("LabelSettings_5o04e")
+horizontal_alignment = 2
+vertical_alignment = 1
